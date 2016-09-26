@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
                                 && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                     String text = query.getText().toString().trim();
                     if (!text.isEmpty()) {
-
                         request(text);
                     }
                 }
@@ -37,5 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void request(String query) {
         Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
+        new RequestAsyncTask(query).execute();
     }
 }
